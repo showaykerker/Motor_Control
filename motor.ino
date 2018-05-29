@@ -32,7 +32,7 @@ void loop() {
 /**************** PID Controller     ****************/
 
 void pid(int target_, int now_n){
-  float kp=0.8, kd=0.0, ki=0.0;
+  float kp=1.1, kd=0.0, ki=0.0;
   error = gamma_*error + (target_-now_n);
   now_power = now_power + int((target_-now_n)*kp) + int(ki*error) + int( (error-last_error)*kd );
   last_error=error;
