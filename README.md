@@ -1,6 +1,6 @@
 # Motor_Control
 
-This is a project using [Linkit 7697](https://www.seeedstudio.com/LinkIt-7697-p-2818.html) and a few arduino modules - including 20-slot encoder and deceleration dc motor - to control motor speed.
+This is a project using [Linkit 7697](https://www.seeedstudio.com/LinkIt-7697-p-2818.html) and a few arduino modules - including 20-slot encoder, L298N and deceleration dc motor - to control motor speed.
 
 Note that in linkit 7697 package, the external interrupt is having a ==debounce time==, which makes it unable to calculate actual speed of the motor.
 
@@ -16,4 +16,4 @@ void attachInterrupt(uint32_t pin, voidFuncPtr callback, uint32_t mode) {
 }
 ```
 
-The default debounce time was set to 50ms, I tried 1ms and it worked well.
+The default debounce time was set to 50ms, I tried 1ms and it worked well even USR button EINT.
