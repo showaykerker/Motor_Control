@@ -9,7 +9,7 @@
 const int interval = 200;
 unsigned int n = 0, target=18;
 unsigned int now_power = 0;
-float cummulate = 0, gamma_=0.6;
+float error=0, gamma_=0.6, last_error=0;
 LTimer timer0(LTIMER_0);
 
 
@@ -32,9 +32,10 @@ void loop() {
 /**************** PID Controller     ****************/
 
 void pid(int target_, int now_n){
-  float kp=4, kd=0.005, ki=0.32;
-  cummulate = gamma_*cummulate + (target_-now_n);
-  now_power = now_power + int((target_-now_n)*kp) + int(ki*cummulate) + int( (int((target_-now_n)*kp) + int(ki*cummulate))*kd );
+  float kp=0.8, kd=0.0, ki=0.0;
+  error = gamma_*error + (target_-now_n);
+  now_power = now_power + int((target_-now_n)*kp) + int(ki*error) + int( (error-last_error)*kd );
+  last_error=error;
   Serial.print(now_n);
   Serial.print(",");
   Serial.println(target_);
