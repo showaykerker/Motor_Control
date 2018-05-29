@@ -4,7 +4,7 @@ This is a project using [Linkit 7697](https://www.seeedstudio.com/LinkIt-7697-p-
 
 Note that in linkit 7697 package, the external interrupt is having a ==debounce time==, which makes it unable to calculate actual speed of the motor.
 
-Inorder to fix this problem, it required to modify a little bit in 7697's library.
+In order to fix this problem, it is required to modify a little bit in 7697's library.
 
 ### For Linux
 
